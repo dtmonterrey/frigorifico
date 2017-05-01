@@ -28,6 +28,5 @@
 class Remote
 {
   public:
-    void decode(decode_results result);
 };
 #endif

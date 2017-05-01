@@ -2,13 +2,18 @@
   #define HEADER_SENSOR
 
 #include "Arduino.h"
+#include "Storage.h"
 
 class Sensor {
   public:
-    struct t_sensor {
-      char name[15];
-      byte min;
-      byte max;
-    };
+    Sensor(int id, String name);
+    byte id;
+    String name;
+    int min;
+    int max;
+    int read();
+    void storeMin(int);
+    void storeMax(int);
+    void reset();
 };
 #endif
