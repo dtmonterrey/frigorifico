@@ -30,7 +30,7 @@ Legend:
 - PLAY enter selection
 - PREV previous item
 - NEXT next menu
-- - store minimum value
-- + store maximum value
+- \- store minimum value
+- \+ store maximum value
 - 1~9 direct access to item
 
