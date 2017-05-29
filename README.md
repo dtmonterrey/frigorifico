@@ -1,3 +1,8 @@
+What Is This?
+=============
+
+It's the software for running inside an Arduino project to control a refrigerator.
+
 Remote Config
 =============
 
@@ -19,11 +24,13 @@ Remote Config
 \--------------/
 </pre>
 
-ON - turn the display On / Off 
-PLAY - enter selection
-PREV - previous item
-NEXT - next menu
-\- - store minimum value
-\+ - store maximum value
-1~9 - direct access to item
+Legend:
+-------
+- ON turn the display On / Off 
+- PLAY enter selection
+- PREV previous item
+- NEXT next menu
+- - store minimum value
+- + store maximum value
+- 1~9 direct access to item
 
