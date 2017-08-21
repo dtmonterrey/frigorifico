@@ -21,32 +21,26 @@
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 #include "Menu.h"
-#include "Remote.h"
 #include "Sensor.h"
 #include "Storage.h"
 
 #define VERSION     0.1
 
-IRrecv irda(2);
 Menu *menu = NULL;
 unsigned long lcd_update_previous = 0;
 unsigned long lcd_update_current = 0;
 
 void setup()
 {
-  irda.enableIRIn();
+  Serial.begin(9600);
   menu = new Menu();
   menu->home();
 }
 
 void loop()
 {
-  decode_results irda_result;
-  
-  if (irda.decode(&irda_result)) {
-    menu->decode(irda_result);
-    delay(600);
-    irda.resume();
+  if (Serial.available() > 0) {
+    menu->decodeBluetooth(Serial.read());
   }
 
   // if we are inside a sensor menu, keep updating the value every 5 seconds

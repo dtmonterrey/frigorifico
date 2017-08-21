@@ -164,11 +164,10 @@ void Menu::storeMax() {
   exec();
 }
 
-void Menu::decode(decode_results result)
+void Menu::decodeBluetooth(int command)
 {
-  switch (result.value)
-  {
-    case REMOTE_ON:
+  switch (command) {
+    case BLUETOOTH_ON:
       if (lcd_backlight) {
         lcd->clear();
         lcd->noBacklight();
@@ -180,45 +179,28 @@ void Menu::decode(decode_results result)
         lcd_backlight = true;
       }
       break;
-    case REMOTE_NEXT:
+    case BLUETOOTH_NEXT:
       next();
       break;
-    case REMOTE_PREV:
+    case BLUETOOTH_PREV:
       prev();
       break;
-    case REMOTE_PLAY:
+    case BLUETOOTH_PLAY:
       menu_selected = menu_current;
       exec();
       break;
-    case REMOTE_SHUF:
+    case BLUETOOTH_ESC:
       menu_selected = -1;
       home();
       break;
-    case REMOTE_LESS:
+    case BLUETOOTH_LESS:
       storeMin();
       break;
-    case REMOTE_MORE:
+    case BLUETOOTH_MORE:
       storeMax();
-      break;
-    case REMOTE_1:
-      menu_current = 1;
-      menu_selected = 1;
-      exec();
-      break;
-    case REMOTE_2:
-      menu_current = 2;
-      menu_selected = 2;
-      exec();
-      break;
-    case REMOTE_3:
-      menu_current = 3;
-      menu_selected = 3;
-      exec();
-      break;
-    case 0xFFFFFFFF:
-      // received remote signal unknown
       break;
     default:
       break;
   }
 }
+

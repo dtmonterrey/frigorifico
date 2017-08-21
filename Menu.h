@@ -23,8 +23,8 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include "Remote.h"
 #include "Sensor.h"
+#include "Bluetooth.h"
 
 #define MENU_INFO     0
 #define MENU_SENSOR1  1
@@ -42,7 +42,7 @@ class Menu {
     void prev();
     void exec();
     void clear(byte);
-    void decode(decode_results);
+    void decodeBluetooth(int);
   private:
     struct t_menu {
       String text;
