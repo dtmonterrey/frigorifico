@@ -19,7 +19,7 @@
 #ifndef HEADER_SENSOR
   #define HEADER_SENSOR
 
-#include "Arduino.h"
+#include <Arduino.h>
 #include "Storage.h"
 
 class Sensor {

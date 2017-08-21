@@ -3,6 +3,23 @@ What Is This?
 
 It's the software for running inside an Arduino project to control a refrigerator.
 
+Building
+========
+
+Dependencies
+------------
+
+- gcc
+- gcc-avr
+- gcc-multilib
+- g++-multilib
+- arduino/Wire
+- arduino/EEPROM
+
+Also:
+- https://github.com/marcoschwartz/LiquidCrystal_I2C
+- https://github.com/z3t0/Arduino-IRremote
+
 Remote Config
 =============
 
@@ -26,7 +43,7 @@ Remote Config
 
 Legend:
 -------
-- ON turn the display On / Off 
+- ON turn the display On / Off
 - PLAY enter selection
 - PREV previous item
 - NEXT next menu

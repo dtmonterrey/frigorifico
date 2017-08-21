@@ -21,7 +21,7 @@
   #define HEADER_STORAGE
 
 #include <EEPROM.h>
-#include "Arduino.h"
+#include <Arduino.h>
 
 class Storage {
   public:

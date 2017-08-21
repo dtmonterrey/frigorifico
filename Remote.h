@@ -20,7 +20,7 @@
 #ifndef HEADER_REMOTE
   #define HEADER_REMOTE
 
-#include "IRremote.h"
+#include <IRremote.h>
 
 #define REMOTE_ON   0xFFA25D
 #define REMOTE_MODE 0xFF629D
