@@ -41,16 +41,16 @@ Menu::Menu()
 
 void Menu::home() {
   Serial.println("\n\n\n==========");
-  Serial.println("   ENTER   " + BLUETOOTH_PLAY);
-  Serial.println("<- PREV    " + BLUETOOTH_PREV);
-  Serial.println("-> NEXT    " + BLUETOOTH_NEXT);
-  Serial.println("-  LESS    " + BLUETOOTH_LESS);
-  Serial.println("+  MORE    " + BLUETOOTH_MORE);
-  Serial.println("x  ESC     " + BLUETOOTH_ESC);
-  Serial.println("Relay 1    " + BLUETOOTH_R1);
-  Serial.println("Relay 2    " + BLUETOOTH_R2);
-  Serial.println("Relay 3    " + BLUETOOTH_R3);
-  Serial.println("Relay 4    " + BLUETOOTH_R4);
+  Serial.println("   ENTER   p");
+  Serial.println("<- PREV    a");
+  Serial.println("-> NEXT    s");
+  Serial.println("-  LESS    -");
+  Serial.println("+  MORE    +");
+  Serial.println("x  ESC     q");
+  Serial.println("Relay 1    1");
+  Serial.println("Relay 2    2");
+  Serial.println("Relay 3    3");
+  Serial.println("Relay 4    4");
   Serial.println("   MAIN MENU");
   Serial.println(menus[menu_current].text);
 }
