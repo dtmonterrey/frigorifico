@@ -33,13 +33,6 @@ Menu::Menu()
   menus[4].text = "* RESET";
   menus[4].id   = MENU_RESET;
 
-  // init LCD
-  lcd = new LiquidCrystal_I2C(0x3F,16,2);
-  lcd->init();
-  if (lcd_backlight) lcd->backlight(); else lcd->noBacklight();
-  lcd->createChar(0, temp_low);
-  lcd->createChar(1, temp_high);
-
   // init NTCs
   ntc1 = new Sensor(0, "Frio");
   ntc2 = new Sensor(1, "Gelo");
@@ -47,11 +40,15 @@ Menu::Menu()
 }
 
 void Menu::home() {
-  lcd->clear();
-  lcd->backlight();
-  lcd->print("   MAIN MENU");
-  lcd->setCursor(0,1);
-  lcd->print(menus[menu_current].text);
+  Serial.println("\n\n\n==========");
+  Serial.println("   ENTER   " + BLUETOOTH_PLAY);
+  Serial.println("<- PREV    " + BLUETOOTH_PREV);
+  Serial.println("-> NEXT    " + BLUETOOTH_NEXT);
+  Serial.println("-  LESS    " + BLUETOOTH_LESS);
+  Serial.println("+  MORE    " + BLUETOOTH_MORE);
+  Serial.println("x  ESC     " + BLUETOOTH_ESC);
+  Serial.println("   MAIN MENU");
+  Serial.println(menus[menu_current].text);
 }
 
 void Menu::next()
@@ -60,10 +57,8 @@ void Menu::next()
   if (menu_current >= MENU_ITEMS) {
     menu_current = 0;
   }
-  lcd->clear();
-  lcd->print("   MAIN MENU");
-  lcd->setCursor(0,1);
-  lcd->print(menus[menu_current].text);
+  Serial.println("   MAIN MENU");
+  Serial.println(menus[menu_current].text);
 }
 
 void Menu::prev()
@@ -72,18 +67,13 @@ void Menu::prev()
   if (menu_current < 0) {
     menu_current = MENU_ITEMS - 1;
   }
-  lcd->clear();
-  lcd->print("   MAIN MENU");
-  lcd->setCursor(0,1);
-  lcd->print(menus[menu_current].text);
+  Serial.println("   MAIN MENU");
+  Serial.println(menus[menu_current].text);
 }
 
 void Menu::clear(byte line)
 {
-  for (byte c = 0; c < 16; c++) {
-    lcd->setCursor(c, line);
-    lcd->print(" ");
-  }
+  Serial.println("==========\n\n\n");
 }
 
 void Menu::exec()
@@ -102,34 +92,25 @@ void Menu::exec()
     case MENU_RESET:
       doReset();
       break;
+    case MENU_RELAYS:
+      showRelays();
+      break;
   }
 }
 
 void Menu::showSensor(Sensor *sensor) {
-  lcd->clear();
-  lcd->print(sensor->name);
-  lcd->setCursor(12,0);
-  lcd->print(sensor->read());
-  lcd->setCursor(0,1);
-  lcd->write(byte(0));
-  lcd->print(" ");
-  lcd->print(sensor->min);
-  lcd->setCursor(7,1);
-  lcd->write(byte(1));
-  lcd->print(" ");
-  lcd->print(sensor->max);
+  Serial.println(sensor->name);
+  Serial.println(sensor->read());
+  Serial.println(sensor->min);
+  Serial.println(sensor->max);
 }
 
 void Menu::doReset() {
-  lcd->clear();
-  lcd->print("Reset de Mins");
-  lcd->setCursor(0,1);
-  lcd->print("e Maximos...");
+  Serial.print("Reset de Mins e Maximos... ");
   ntc1->reset();
   ntc2->reset();
   ntc3->reset();
-  lcd->clear();
-  lcd->print("Terminado!");
+  Serial.println("Feito!");
 }
 
 void Menu::storeMin() {
@@ -167,18 +148,6 @@ void Menu::storeMax() {
 void Menu::decodeBluetooth(int command)
 {
   switch (command) {
-    case BLUETOOTH_ON:
-      if (lcd_backlight) {
-        lcd->clear();
-        lcd->noBacklight();
-        lcd->noDisplay();
-        lcd_backlight = false;
-      } else {
-        lcd->display();
-        home();
-        lcd_backlight = true;
-      }
-      break;
     case BLUETOOTH_NEXT:
       next();
       break;

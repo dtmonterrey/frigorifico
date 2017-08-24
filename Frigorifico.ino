@@ -19,7 +19,6 @@
 
 #include <IRremote.h>
 #include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
 #include "Menu.h"
 #include "Sensor.h"
 #include "Storage.h"

@@ -20,7 +20,6 @@
 #ifndef HEADER_BLUETOOTH
   #define HEADER_BLUETOOTH
 
-#define BLUETOOTH_ON    '\r'
 #define BLUETOOTH_PLAY  '0'
 #define BLUETOOTH_PREV  '1'
 #define BLUETOOTH_NEXT  '2'
