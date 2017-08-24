@@ -30,8 +30,12 @@
 #define MENU_SENSOR2  2
 #define MENU_SENSOR3  3
 #define MENU_RESET    4
-#define MENU_RELAYS   5
-#define MENU_ITEMS    6
+#define MENU_ITEMS    5
+
+#define RELAY_1     9
+#define RELAY_2     10
+#define RELAY_3     11
+#define RELAY_4     12
 
 class Menu {
   public:
@@ -51,10 +55,13 @@ class Menu {
     int menu_current = 1;
     Sensor *ntc1 = NULL, *ntc2 = NULL, *ntc3 = NULL;
     void showSensor(Sensor *);
-    void showRelays();
     void doReset();
     void storeMin();
     void storeMax();
+    boolean relay_1 = false;
+    boolean relay_2 = false;
+    boolean relay_3 = false;
+    boolean relay_4 = false;
 };
 
 #endif

@@ -47,6 +47,10 @@ void Menu::home() {
   Serial.println("-  LESS    " + BLUETOOTH_LESS);
   Serial.println("+  MORE    " + BLUETOOTH_MORE);
   Serial.println("x  ESC     " + BLUETOOTH_ESC);
+  Serial.println("Relay 1    " + BLUETOOTH_R1);
+  Serial.println("Relay 2    " + BLUETOOTH_R2);
+  Serial.println("Relay 3    " + BLUETOOTH_R3);
+  Serial.println("Relay 4    " + BLUETOOTH_R4);
   Serial.println("   MAIN MENU");
   Serial.println(menus[menu_current].text);
 }
@@ -91,9 +95,6 @@ void Menu::exec()
       break;
     case MENU_RESET:
       doReset();
-      break;
-    case MENU_RELAYS:
-      showRelays();
       break;
   }
 }
@@ -167,6 +168,42 @@ void Menu::decodeBluetooth(int command)
       break;
     case BLUETOOTH_MORE:
       storeMax();
+      break;
+    case BLUETOOTH_R1:
+      if (relay_1) {
+        digitalWrite(RELAY_1, LOW);
+        relay_1 = false;
+      } else {
+        digitalWrite(RELAY_1, HIGH);
+        relay_1 = true;
+      }
+      break;
+    case BLUETOOTH_R2:
+      if (relay_2) {
+        digitalWrite(RELAY_2, LOW);
+        relay_2 = false;
+      } else {
+        digitalWrite(RELAY_2, HIGH);
+        relay_2 = true;
+      }
+      break;
+    case BLUETOOTH_R3:
+      if (relay_3) {
+        digitalWrite(RELAY_3, LOW);
+        relay_3 = false;
+      } else {
+        digitalWrite(RELAY_3, HIGH);
+        relay_3 = true;
+      }
+      break;
+    case BLUETOOTH_R4:
+      if (relay_4) {
+        digitalWrite(RELAY_4, LOW);
+        relay_4 = false;
+      } else {
+        digitalWrite(RELAY_4, HIGH);
+        relay_4 = true;
+      }
       break;
     default:
       break;

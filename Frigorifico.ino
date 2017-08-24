@@ -31,6 +31,12 @@ unsigned long lcd_update_current = 0;
 
 void setup()
 {
+  // Relays
+  pinMode(RELAY_1, OUTPUT);  // Relay 1
+  pinMode(RELAY_2, OUTPUT);  // Relay 2
+  pinMode(RELAY_3, OUTPUT);  // Relay 3
+  pinMode(RELAY_4, OUTPUT);  // Relay 4
+  // Bluetooth
   Serial.begin(9600);
   menu = new Menu();
   menu->home();

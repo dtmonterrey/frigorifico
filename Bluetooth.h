@@ -20,12 +20,16 @@
 #ifndef HEADER_BLUETOOTH
   #define HEADER_BLUETOOTH
 
-#define BLUETOOTH_PLAY  '0'
-#define BLUETOOTH_PREV  '1'
-#define BLUETOOTH_NEXT  '2'
-#define BLUETOOTH_LESS  '3'
-#define BLUETOOTH_MORE  '4'
-#define BLUETOOTH_ESC   '5'
+#define BLUETOOTH_PLAY  'p'
+#define BLUETOOTH_PREV  'a'
+#define BLUETOOTH_NEXT  's'
+#define BLUETOOTH_LESS  '-'
+#define BLUETOOTH_MORE  '+'
+#define BLUETOOTH_ESC   'q'
+#define BLUETOOTH_R1    '1'
+#define BLUETOOTH_R2    '2'
+#define BLUETOOTH_R3    '3'
+#define BLUETOOTH_R4    '4'
 
 class Bluetooth
 {
