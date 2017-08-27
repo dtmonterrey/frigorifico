@@ -23,8 +23,6 @@
 #include "Sensor.h"
 #include "Storage.h"
 
-#define VERSION     0.1
-
 Menu *menu = NULL;
 unsigned long lcd_update_previous = 0;
 unsigned long lcd_update_current = 0;
@@ -36,10 +34,10 @@ void setup()
   pinMode(10, OUTPUT);  // Relay 2
   pinMode(11, OUTPUT);  // Relay 3
   pinMode(12, OUTPUT);  // Relay 4
-  digitalWrite(9, LOW);
-  digitalWrite(10, LOW);
-  digitalWrite(11, LOW);
-  digitalWrite(12, LOW);
+  digitalWrite(9, HIGH);
+  digitalWrite(10, HIGH);
+  digitalWrite(11, HIGH);
+  digitalWrite(12, HIGH);
   // Bluetooth
   Serial.begin(9600);
   menu = new Menu();

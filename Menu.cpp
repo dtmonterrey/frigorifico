@@ -96,6 +96,10 @@ void Menu::exec()
     case MENU_RESET:
       doReset();
       break;
+    case MENU_INFO:
+      Serial.print("Versao ");
+      Serial.print(VERSION);
+      break;
   }
 }
 
@@ -171,37 +175,37 @@ void Menu::decodeBluetooth(int command)
       break;
     case BLUETOOTH_R1:
       if (relay_1) {
-        digitalWrite(RELAY_1, LOW);
+        digitalWrite(RELAY_1, HIGH);
         relay_1 = false;
       } else {
-        digitalWrite(RELAY_1, HIGH);
+        digitalWrite(RELAY_1, LOW);
         relay_1 = true;
       }
       break;
     case BLUETOOTH_R2:
       if (relay_2) {
-        digitalWrite(RELAY_2, LOW);
+        digitalWrite(RELAY_2, HIGH);
         relay_2 = false;
       } else {
-        digitalWrite(RELAY_2, HIGH);
+        digitalWrite(RELAY_2, LOW);
         relay_2 = true;
       }
       break;
     case BLUETOOTH_R3:
       if (relay_3) {
-        digitalWrite(RELAY_3, LOW);
+        digitalWrite(RELAY_3, HIGH);
         relay_3 = false;
       } else {
-        digitalWrite(RELAY_3, HIGH);
+        digitalWrite(RELAY_3, LOW);
         relay_3 = true;
       }
       break;
     case BLUETOOTH_R4:
       if (relay_4) {
-        digitalWrite(RELAY_4, LOW);
+        digitalWrite(RELAY_4, HIGH);
         relay_4 = false;
       } else {
-        digitalWrite(RELAY_4, HIGH);
+        digitalWrite(RELAY_4, LOW);
         relay_4 = true;
       }
       break;

@@ -25,6 +25,8 @@
 #include "Sensor.h"
 #include "Bluetooth.h"
 
+#define VERSION     0.2
+
 #define MENU_INFO     0
 #define MENU_SENSOR1  1
 #define MENU_SENSOR2  2
